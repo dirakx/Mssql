@@ -4,5 +4,8 @@
 * kill spi for long-running tasks.
 * cpus configurations
 
-## scripts
+## Scripts
+* WAITFOR DELAY '00:02'
+* kill spid #spid number
+
 
