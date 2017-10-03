@@ -141,7 +141,11 @@ DROP table #Temp
 --SQL Script end
 
 ## location 
-D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
+* D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
+* Database engine
+* CHVMP003\ZINA
+* SQL Server Authentication
+
 
 
 
