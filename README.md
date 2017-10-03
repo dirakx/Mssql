@@ -143,7 +143,7 @@ DROP table #Temp
 ## location 
 * D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
 * Database engine
-* CHVMP003\ZINA
+* CHVMP003\DBNAME
 * SQL Server Authentication
 
 
