@@ -140,6 +140,10 @@ ORDER by sum(UserSeeks + UserScans + UserUpdates) DESC
 DROP table #Temp
 --SQL Script end
 
+## location 
+D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
+
+
 
 
 
