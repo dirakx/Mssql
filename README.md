@@ -88,6 +88,8 @@ AND         session_id > 50 -- don't show system queries
 ORDER BY    r.start_time
 ```
 ### clear tempdb
+This procedure can also be done via properties and altering the initial size of the tempdb. 
+
 ```
 use tempdb
 GO
@@ -143,10 +145,10 @@ ORDER by sum(UserSeeks + UserScans + UserUpdates) DESC
 DROP table #Temp
 --SQL Script end
 ```
-## location 
+## Location 
 * D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
 * Database engine
-* SERVERNA<E\DBNAME
+* SERVERNAME\DBNAME
 * SQL Server Authentication
 
 
