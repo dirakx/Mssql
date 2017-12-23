@@ -1,15 +1,17 @@
 # Mssql
 
-* change memory threshold on resource pools
+## Notes
+
+* Change memory threshold on resource pools
 * kill spi for long-running tasks.
-* cpus configurations
+* Cpus configurations
 
 ## Scripts
 * WAITFOR DELAY '00:02'
 * kill spid #spid number
 
 ### show actual queries
-
+```
 SELECT      r.start_time [Start Time],session_ID [SPID],
             DB_NAME(database_id) [Database],
             SUBSTRING(t.text,(r.statement_start_offset/2)+1,
@@ -24,9 +26,9 @@ OUTER APPLY sys.dm_exec_sql_text(sql_handle) t
 WHERE       session_id != @@SPID -- don't show this query
 AND         session_id > 50 -- don't show system queries
 ORDER BY    r.start_time
-
+```
 ### Kill freeze processes from database.
-
+```
 declare @max_count int, @count int, @sqlstring varchar(100)
 declare @spid_table table (spid int NOT NULL)
 
@@ -53,24 +55,23 @@ BEGIN
 select top 1 @count = spid FROM @spid_table where spid > @count
 end
 end
-
+```
 ### Freezeinfo related queries 
 
-
-
+```
 USE Master
 GO
 EXEC sp_who2
-
-
+```
+```
 USE Master
 GO
 SELECT * 
 FROM sys.dm_exec_requests
 WHERE blocking_session_id <> 0;
 GO
-
-
+```
+```
 SELECT      r.start_time [Start Time],session_ID [SPID],
             DB_NAME(database_id) [Database],
             SUBSTRING(t.text,(r.statement_start_offset/2)+1,
@@ -85,9 +86,9 @@ OUTER APPLY sys.dm_exec_sql_text(sql_handle) t
 WHERE       session_id != @@SPID -- don't show this query
 AND         session_id > 50 -- don't show system queries
 ORDER BY    r.start_time
-
+```
 ### clear tempdb
-
+```
 use tempdb
 GO
 
@@ -105,11 +106,13 @@ SELECT name, size
 FROM sys.master_files
 WHERE database_id = DB_ID(N'tempdb');
 GO
-
+```
 ### check db
+```
 DBCC CHECKDB
-
-### Most used tables 
+```
+### Most used tables
+```
 --SQL Script begin
 IF OBJECT_ID('tempdb..#Temp') IS NOT NULL
 DROP TABLE #Temp
@@ -139,11 +142,11 @@ HAVING sum(UserSeeks + UserScans) > 0
 ORDER by sum(UserSeeks + UserScans + UserUpdates) DESC
 DROP table #Temp
 --SQL Script end
-
+```
 ## location 
 * D:\MSSQL\100\Tools\Binn\VSShell\Common7\IDE\Ssms.exe
 * Database engine
-* CHVMP003\DBNAME
+* SERVERNA<E\DBNAME
 * SQL Server Authentication
 
 
